@@ -1,19 +1,24 @@
-# python-minecraft-rcon-library
-2024 working python library to send rcon commands to minecraft server ( with output )
+# Python Minecraft RCON Library
 
-<h2>example</h2>
+A working Python library to send RCON commands to a Minecraft server (with output).
+
+## Example
+
 ```python
 import Rcon
+
 host = '127.0.0.2'  # Server host name or IP
-port = 25575            # Port rcon is listening on
-password = 'xxx'      # rcon.password setting set in server.properties
-timeout = 3             # How long to timeout.
+port = 25575         # Port RCON is listening on
+password = 'xxx'     # rcon.password setting in server.properties
+timeout = 3          # Timeout duration in seconds
 
-Rcon = Rcon.Rcon(host, port, password, timeout)
+rcon = Rcon.Rcon(host, port, password, timeout)
 
-if Rcon.connect():
-    mame = Rcon.send_command("kill @a")
-    print(mame)
+if rcon.connect():
+    response = rcon.send_command("kill @a")
+    print(response)
+else:
+    print("Connection failed.")
 ```
 
-special thanks to [this repo](https://github.com/thedudeguy/PHP-Minecraft-Rcon) for logics!
+Special thanks to [this repository](https://github.com/thedudeguy/PHP-Minecraft-Rcon) for the logic!
